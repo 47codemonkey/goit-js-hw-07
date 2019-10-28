@@ -1,19 +1,15 @@
 "use strict";
 
-const input = document.getElementById("validation-input");
 
-const validateInputLegth = e => {
-    if (e.target.value.length <= input.getAttribute("data-length")) {
-        input.classList.add("valid");
-        if (input.classList.contains("invalid")) {
-            input.classList.remove("invalid");
-        }
-    } else {
-        input.classList.add("invalid");
-        if (input.classList.contains("valid")) {
-            input.classList.remove("valid");
-        }
+const validationInput = document.querySelector("#validation-input");
+const inputLength = validationInput.getAttribute("data-length");
+
+function val() {
+    validationInput.classList.add("invalid");
+    if (validationInput.value.length == inputLength) {
+        validationInput.classList.add("valid");
+        validationInput.classList.remove("invalid");
     }
-};
+}
 
-input.addEventListener("blur", validateInputLegth);
+validationInput.addEventListener("blur", val);
