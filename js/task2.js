@@ -9,14 +9,11 @@ const ingredients = [
     "Приправы"
 ];
 
-const createListItem = ingredients => {
-    const parentElem = document.querySelector("ul#ingredients");
 
-    for (const ingredient of ingredients) {
-        let listItem = document.createElement("li");
-        listItem.textContent = ingredient;
-        parentElem.append(listItem);
-    }
-};
+const ingredientItem = document.querySelector('#ingredients');
 
-createListItem(ingredients);
+ingredients.map((item) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = item;
+    return ingredientItem.appendChild(listItem);
+});

@@ -1,23 +1,28 @@
 "use strict";
 
-let counterValue = 0;
-
-const value = document.querySelector("#value");
-
-const increment = () => {
-    counterValue = counterValue + 1;
-    value.textContent = counterValue;
+const refs = {
+    counter: document.querySelector('#counter'),
+    value: document.querySelector('#value'),
 };
 
-const decrement = () => {
-    counterValue = counterValue - 1;
-    value.textContent = counterValue;
+
+const actions = {
+    state: {
+        value: 0,
+    },
+    decrement() {
+        this.state.value -= 1;
+    },
+    increment() {
+        this.state.value += 1;
+    },
 };
 
-document
-    .querySelector("[data-action='increment']")
-    .addEventListener("click", increment);
+const changeValue = ({
+    target
+}) => {
+    actions[target.dataset.action]();
+    refs.value.textContent = actions.state.value;
+};
 
-document
-    .querySelector("[data-action='decrement']")
-    .addEventListener("click", decrement);
+refs.counter.addEventListener('click', changeValue);
