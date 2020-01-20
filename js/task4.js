@@ -1,28 +1,35 @@
 "use strict";
 
-const refs = {
-    counter: document.querySelector('#counter'),
-    value: document.querySelector('#value'),
+const value = document.querySelector("#value");
+
+let counterValue = 0;
+
+const increment = () => {
+    counterValue = counterValue + 1;
+    value.textContent = counterValue;
 };
 
-
-const actions = {
-    state: {
-        value: 0,
-    },
-    decrement() {
-        this.state.value -= 1;
-    },
-    increment() {
-        this.state.value += 1;
-    },
+const decrement = () => {
+    counterValue = counterValue - 1;
+    value.textContent = counterValue;
 };
 
-const changeValue = ({
-    target
-}) => {
-    actions[target.dataset.action]();
-    refs.value.textContent = actions.state.value;
-};
+const plus = document.querySelector("[data-action='increment']")
+plus.addEventListener("click", increment);
 
-refs.counter.addEventListener('click', changeValue);
+const minus = document.querySelector("[data-action='decrement']")
+minus.addEventListener("click", decrement);
+
+
+/*
+
+document
+  .querySelector("[data-action='increment']")
+  .addEventListener("click", increment);
+
+document
+  .querySelector("[data-action='decrement']")
+  .addEventListener("click", decrement);
+
+
+  */
