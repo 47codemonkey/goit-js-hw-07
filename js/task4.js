@@ -1,24 +1,24 @@
 "use strict";
 
-const value = document.querySelector("#value");
-
 let counterValue = 0;
 
-const increment = () => {
-    counterValue = counterValue + 1;
-    value.textContent = counterValue;
+const increment = document.querySelector('[data-action="increment"]');
+const decrement = document.querySelector('[data-action="decrement"]');
+const counter = document.getElementById("value");
+
+const plus = () => {
+  counter.textContent = counterValue;
+  counterValue += 1;
 };
 
-const decrement = () => {
-    counterValue = counterValue - 1;
-    value.textContent = counterValue;
+const minus = () => {
+  counter.textContent = counterValue;
+  counterValue -= 1;
 };
 
-const plus = document.querySelector("[data-action='increment']")
-plus.addEventListener("click", increment);
+increment.addEventListener("click", plus);
+decrement.addEventListener("click", minus);
 
-const minus = document.querySelector("[data-action='decrement']")
-minus.addEventListener("click", decrement);
 
 
 /*
