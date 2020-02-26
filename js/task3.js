@@ -18,7 +18,9 @@ const images = [{
 
 const gal = document.getElementById('gallery')
 
-images.forEach(img => {
-    return gal.insertAdjacentHTML("afterbegin",
-        `<li><img src="${img.url}" alt="${img.alt}"/></li>`)
-})
+const mockup = images.map(({
+    url,
+    alt
+}) => `<li><img src="${url}" alt="${alt}"/></li>`).join('')
+
+gal.insertAdjacentHTML('afterbegin', mockup)

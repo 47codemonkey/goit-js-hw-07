@@ -12,7 +12,7 @@ const ingredients = [
 
 const ingredientItem = document.getElementById('ingredients');
 
-ingredients.map((item) => {
+ingredients.forEach((item) => {
     const listItem = document.createElement('li');
     listItem.textContent = item;
     ingredientItem.appendChild(listItem);
