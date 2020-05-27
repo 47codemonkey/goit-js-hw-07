@@ -24,3 +24,23 @@ const mockup = images.map(({
 }) => `<li><img src="${url}" alt="${alt}"/></li>`).join('')
 
 gal.insertAdjacentHTML('afterbegin', mockup)
+
+
+// another variant
+
+// const galleryElement = document.querySelector('#gallery');
+
+// const createGalleryItem = ({url, alt}) => {
+//   const item = document.createElement('li');
+//   const image= document.createElement('img');
+//   image.classList.add('image');
+//   image.src = url;
+//   image.alt = alt;
+//   item.appendChild(image);
+//   return item;
+//   }
+
+//   const elements = images.map((e) => createGalleryItem(e));
+
+//   galleryElement.append(...elements);
+
